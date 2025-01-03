@@ -1,0 +1,140 @@
+/* Layout Container */
+.profile-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Welcome Section Styles */
+.welcome-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.user-avatar {
+  width: 64px;
+  height: 64px;
+  background-color: #f3f4f6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-text h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.welcome-text p {
+  color: #6b7280;
+  margin: 4px 0 0 0;
+}
+
+/* Card Component Styles */
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+}
+
+.card-content {
+  padding: 24px;
+}
+
+/* Form Layout Styles */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+/* Form Element Styles */
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #f9fafb;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #7c3aed;
+  ring: 2px solid rgba(124, 58, 237, 0.2);
+}
+
+/* Button Styles */
+.edit-button {
+  margin-left: auto;
+  padding: 8px 16px;
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.edit-button:hover {
+  background-color: #6d28d9;
+}
+
+/* Investment Grid Styles */
+.investment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 16px;
+}
+
+.investment-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.investment-item .label {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.investment-item .value {
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.status-active {
+  color: #059669;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .investment-grid {
+    grid-template-columns: 1fr;
+  }
+}
