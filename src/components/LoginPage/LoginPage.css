@@ -1,0 +1,196 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: white;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  background-color: white;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.login-box h1 {
+  text-align: center;
+  font-size: 24px;
+  color: #2d3748;
+  margin-bottom: 32px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.form-field {
+  position: relative;
+  width: 100%;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: white;
+  color: #2d3748;
+  box-sizing: border-box;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #10B981;
+  box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.1);
+}
+
+.password-field {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #718096;
+}
+
+.email-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  color: #2d3748;
+  font-size: 16px;
+}
+
+.edit-button {
+  background: none;
+  border: none;
+  color: #7c53b3;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.edit-button:hover {
+  text-decoration: underline;
+}
+
+.continue-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #7c53b3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.continue-button:hover {
+  background-color: #7c53b3;
+}
+
+.continue-button:focus {
+  outline: none;
+}
+
+.forgot-password {
+  text-align: left;
+  margin-top: -8px;
+}
+
+.forgot-password button {
+  background: none;
+  border: none;
+  color: #7c53b3;
+  padding: 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.forgot-password button:hover {
+  text-decoration: underline;
+}
+
+.signup-link {
+  text-align: center;
+  font-size: 14px;
+  color: #718096;
+}
+
+.text-link {
+  background: none;
+  border: none;
+  color: #7c53b3;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+.divider {
+  position: relative;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #e2e8f0;
+}
+
+.divider span {
+  background-color: white;
+  padding: 0 12px;
+  color: #718096;
+  position: relative;
+  font-size: 14px;
+}
+
+.google-login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px 0;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    padding: 20px;
+  }
+  
+  .login-box h1 {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+}
