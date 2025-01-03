@@ -55,6 +55,9 @@ const LoginPage: React.FC<LoginPageProps> = ({ onBackToLanding, onSwitchToSignup
       case 1:
         return (
           <>
+            <button type="button" onClick={handleBack} className="back-button">
+              ← Back
+            </button>
             <h1>Welcome back</h1>
             <div className="form-field">
               <input 
@@ -98,6 +101,9 @@ const LoginPage: React.FC<LoginPageProps> = ({ onBackToLanding, onSwitchToSignup
       case 2:
         return (
           <>
+            <button type="button" onClick={handleBack} className="back-button">
+              ← Back
+            </button>
             <h1>Enter your password</h1>
             <div className="email-display">
               {formData.email}
