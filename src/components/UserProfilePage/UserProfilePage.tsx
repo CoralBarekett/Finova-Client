@@ -1,13 +1,42 @@
-import React, { useState } from 'react';
-import { User } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ArrowUp, ArrowDown } from 'lucide-react';
+import NetworkIcon from './Icon';
 import './UserProfilePage.css';
+
+// Custom hook for typing animation
+const useTypingEffect = (fullText: string, typingSpeed: number = 100) => {
+    const [displayedText, setDisplayedText] = useState('');
+    const [isTypingComplete, setIsTypingComplete] = useState(false);
+
+    useEffect(() => {
+        let i = 0;
+        setDisplayedText(''); // Reset text when fullText changes
+        setIsTypingComplete(false);
+
+        const typingInterval = setInterval(() => {
+            if (i < fullText.length) {
+                setDisplayedText(prev => prev + fullText.charAt(i));
+                i++;
+            } else {
+                setIsTypingComplete(true);
+                clearInterval(typingInterval);
+            }
+        }, typingSpeed);
+
+        return () => clearInterval(typingInterval);
+    }, [fullText, typingSpeed]);
+
+    return { displayedText, isTypingComplete };
+};
 
 interface UserProfileProps {
     onBackToHome?: () => void;
     accountType: 'free' | 'professional';
+    username?: string;
 }
 
-const UserProfile: React.FC<UserProfileProps> = ({ }) => {
+const UserProfile: React.FC<UserProfileProps> = ({ username = 'User' }) => {
+    const [greeting, setGreeting] = useState<string>('');
     const [formData, setFormData] = useState({
         // Personal Information
         fullName: '',
@@ -17,7 +46,6 @@ const UserProfile: React.FC<UserProfileProps> = ({ }) => {
         investmentAmount: '',
         investmentType: '',
         duration: '',
-        yield: '',
 
         // Financial Baseline
         monthlyIncome: '',
@@ -40,8 +68,40 @@ const UserProfile: React.FC<UserProfileProps> = ({ }) => {
     const investment = {
         id: 'INV-2024-001',
         amount: '$10,000',
-        status: 'Active'
+        status: 'Active',
+        yield: '4.5%'
     };
+
+    // Function to parse yield percentage and determine if it's positive
+    const parseYieldValue = (yieldString: string): number => {
+        return parseFloat(yieldString.replace('%', ''));
+    };
+
+    const getGreeting = () => {
+        const hour = new Date().getHours();
+        if (hour >= 5 && hour < 12) {
+            return 'Good morning';
+        } else if (hour >= 12 && hour < 17) {
+            return 'Good afternoon';
+        } else {
+            return '  Good evening';
+        }
+    };
+
+    useEffect(() => {
+        const updateGreeting = () => {
+            setGreeting(getGreeting());
+        };
+        
+        updateGreeting();
+        const intervalId = setInterval(updateGreeting, 60000);
+        
+        return () => clearInterval(intervalId);
+    }, []);
+
+    // Use the typing effect hook for the complete greeting
+    const fullGreeting = `${greeting}, ${username}`;
+    const { displayedText } = useTypingEffect(fullGreeting, 70);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
@@ -55,11 +115,11 @@ const UserProfile: React.FC<UserProfileProps> = ({ }) => {
         <div className="profile-container">
             {/* Welcome Section */}
             <div className="welcome-section">
-                <div className="user-avatar">
-                    <User />
-                </div>
-                <div className="welcome-text">
-                    <h1>WELCOME BACK</h1>
+                <NetworkIcon className="welcome-network-icon" />
+                    <div className="welcome-text">
+                        <h1 className="typing-text">
+                            {displayedText}
+                        </h1>
                 </div>
             </div>
 
@@ -149,16 +209,6 @@ const UserProfile: React.FC<UserProfileProps> = ({ }) => {
                                 />
                             </div>
                             <div className="form-group">
-                                <label>Current Yield</label>
-                                <input
-                                    type="text"
-                                    name="yield"
-                                    value={formData.yield}
-                                    onChange={handleInputChange}
-                                    placeholder="Enter yield"
-                                />
-                            </div>
-                            <div className="form-group">
                                 <label>Risk Tolerance</label>
                                 <select
                                     name="riskTolerance"
@@ -176,10 +226,10 @@ const UserProfile: React.FC<UserProfileProps> = ({ }) => {
                 </div>
             </div>
 
-            {/* Recent Investments Section */}
+            {/* Investment History Section */}
             <div className="card">
                 <div className="card-content">
-                    <h2>Recent Investments</h2>
+                    <h2>Investment History</h2>
                     <div className="investment-grid">
                         <div className="investment-item">
                             <span className="label">Investment ID</span>
@@ -195,7 +245,13 @@ const UserProfile: React.FC<UserProfileProps> = ({ }) => {
                         </div>
                         <div className="investment-item">
                             <span className="label">Current Yield</span>
-                            <span className="yield">{investment.yield}</span>
+                            <span className={`yield ${parseYieldValue(investment.yield) >= 0 ? 'positive' : 'negative'}`}>
+                                {investment.yield}
+                                {parseYieldValue(investment.yield) >= 0 ? 
+                                    <ArrowUp className="inline-icon" size={16} /> : 
+                                    <ArrowDown className="inline-icon" size={16} />
+                                }
+                            </span>
                         </div>
                     </div>
                 </div>

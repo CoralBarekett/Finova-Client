@@ -9,29 +9,39 @@
 .welcome-section {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
   margin-bottom: 32px;
+  padding: 20px 0;
 }
 
-.user-avatar {
+.welcome-network-icon {
+  width: 64px;  /* Match height of avatar */
+  height: 64px;
+  flex-shrink: 0;
+}
+
+/* Network Icon Styles */
+.network-icon {
   width: 64px;
   height: 64px;
-  background-color: #f3f4f6;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.welcome-text h1 {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0;
+/* Typing Animation Styles */
+.typing-text {
+  display: inline-block;
+  position: relative;
+  min-height: 36px; /* Prevents layout shift during typing */
+  white-space: nowrap; /* Keeps text on one line */
 }
 
 .welcome-text p {
   color: #6b7280;
   margin: 4px 0 0 0;
+}
+
+.welcome-text h1 {
+  font-size: 35px;
+  margin: 0;
 }
 
 /* Card Component Styles */
@@ -81,7 +91,6 @@
 .form-group textarea:focus {
   outline: none;
   border-color: #7c3aed;
-  ring: 2px solid rgba(124, 58, 237, 0.2);
 }
 
 /* Button Styles */
@@ -128,6 +137,28 @@
   color: #059669;
 }
 
+.yield {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+
+.yield.positive {
+  color: #10b981;
+}
+
+.yield.negative {
+  color: #ef4444;
+}
+
+/* Icon Styles */
+.inline-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .form-grid {
@@ -136,5 +167,19 @@
   
   .investment-grid {
     grid-template-columns: 1fr;
+  }
+
+  .welcome-text h1 {
+    font-size: 20px; /* Slightly smaller font on mobile */
+  }
+
+  .user-avatar {
+    width: 48px; /* Smaller avatar on mobile */
+    height: 48px;
+  }
+  
+  .network-icon {
+    width: 24px; /* Smaller network icon on mobile */
+    height: 24px;
   }
 }
