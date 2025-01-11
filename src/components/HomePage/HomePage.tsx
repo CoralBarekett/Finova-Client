@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import './HomePage.css';
+import NetworkIcon from '../UserProfilePage/Icon';
+import { SearchIcon, UserProfileIcon } from './HomePageIcons';
+import SearchBar from './SearchBar';
+
 
 interface HomePageProps {
   onLogOut: () => void;
@@ -32,14 +36,14 @@ const HomePage: React.FC<HomePageProps> = ({ onLogOut }) => {
       {/* Navigation */}
       <nav className="nav-container">
         <div className="nav-buttons">
-          <button className="nav-button">🔍</button>
-          <button className="nav-button">✏️</button>
+          <NetworkIcon className="welcome-network-icon" />
+          <SearchBar />
         </div>
         <button 
           className="nav-button"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          👤
+          <UserProfileIcon />
         </button>
       </nav>
 

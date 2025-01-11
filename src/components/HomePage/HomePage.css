@@ -3,6 +3,20 @@
     min-height: 100vh;
     background-color: #faf9f7;
   }
+
+  .welcome-network-icon {
+    width: 64px;  /* Match height of avatar */
+    height: 64px;
+    flex-shrink: 0;
+  }
+  
+  /* Network Icon Styles */
+  .network-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  
   
   /* Navigation styles */
   .nav-container {
