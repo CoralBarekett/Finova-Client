@@ -1,3 +1,4 @@
+
 .login-container {
   display: flex;
   justify-content: center;
@@ -14,6 +15,25 @@
   background-color: white;
   border-radius: 8px;
   margin: 0 auto;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s ease;
+}
+
+.back-button:hover {
+  color: #2d3748;
 }
 
 .login-box h1 {
@@ -187,6 +207,11 @@
 @media (max-width: 480px) {
   .login-box {
     padding: 20px;
+  }
+  
+  .back-button {
+    top: 12px;
+    left: 12px;
   }
   
   .login-box h1 {

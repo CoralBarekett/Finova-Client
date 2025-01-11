@@ -46,7 +46,7 @@ const HomePage: React.FC<HomePageProps> = ({ onLogOut }) => {
       {/* Logo Section */}
       <div className="logo-container">
         <img 
-          src="src/assets/logo.png" 
+          src="src/assets/logo.jpg" 
           alt="Finova AI Logo"
         />
       </div>
