@@ -1,179 +1,202 @@
-/* Main layout */
 .home-container {
-    min-height: 100vh;
-    background-color: #faf9f7;
-  }
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 
-  .welcome-network-icon {
-    width: 64px;  /* Match height of avatar */
-    height: 64px;
-    flex-shrink: 0;
-  }
-  
-  /* Network Icon Styles */
-  .network-icon {
-    width: 64px;
-    height: 64px;
-  }
+.nav-container {
+  height: 64px;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-  
-  
-  /* Navigation styles */
-  .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
-  
-  .nav-buttons {
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .nav-button {
-    padding: 0.5rem;
-    cursor: pointer;
-    background: none;
-    border: none;
-  }
-  
-  /* Logo styles */
-  .logo-container {
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
-  }
-  
-  .logo-container img {
-    height: 10.5rem;
-    object-fit: contain;
-  }
-  
-  /* Pricing section */
-  .pricing-container {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    padding: 2rem;
-  }
-  
-  .pricing-card {
-    background-color: white;
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 18rem;
-  }
-  
-  .pricing-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-  
-  .pricing-price {
-    margin-bottom: 1rem;
-  }
-  
-  .price-amount {
-    font-size: 2.25rem;
-    font-weight: bold;
-  }
-  
-  .price-period {
-    color: #666;
-  }
-  
-  .pricing-button {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border-radius: 0.5rem;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .pricing-button.pro {
-    background-color: #4834b8;
-    color: white;
-  }
-  
-  .pricing-button.free {
-    background-color: white;
-    border: 1px solid #e2e8f0;
-  }
-  
-  .feature-list {
-    margin-top: 1rem;
-  }
-  
-  .feature-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.5rem;
-  }
-  
-  .feature-check {
-    color: #4834b8;
-    margin-right: 0.5rem;
-  }
-  
-  /* User menu */
-  .user-menu {
-    position: absolute;
-    right: 2rem;
-    top: 4rem;
-    background-color: white;
-    border-radius: 1rem;
-    padding: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 14rem;
-  }
-  
-  .menu-item {
-    display: flex;
-    align-items: center;
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  .menu-item:hover {
-    background-color: #f7f7f7;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .pricing-container {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .pricing-card {
-      width: 100%;
-      max-width: 24rem;
-    }
-  }
+.nav-buttons {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
 
-  /* Icon styles */
-.icon {
-    width: 20px;
-    height: 20px;
-    display: block;
-  }
-  
-  .menu-icon {
-    width: 16px;
-    height: 16px;
-    margin-right: 8px;
-  }
-  
-  .check-icon {
-    width: 14px;
-    height: 14px;
-    margin-right: 6px;
-  }
+.Finova-icon {
+  width: 48px;
+  height: 48px;
+  transition: transform 0.2s ease;
+  background: none;
+}
+
+.Finova-icon:hover {
+  transform: scale(1.05);
+}
+
+.hero-section {
+  padding: 2rem;
+  text-align: center;
+  flex: 0 0 auto;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-logo {
+  height: 12rem;
+  object-fit: contain;
+  margin-top: -2rem;
+}
+
+.hero-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.pricing-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  max-height: fit-content;
+  margin: 0 auto;
+  margin-top: -2rem;
+}
+
+.pricing-card {
+  background-color: white;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card-header {
+  margin-bottom: 2rem;
+}
+
+.pricing-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.pricing-price {
+  margin-bottom: 1.5rem;
+}
+
+.price-amount {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.price-period {
+  font-size: 1.125rem;
+  opacity: 0.8;
+}
+
+.pricing-button {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background-color: #7c53b3;;
+  color: white;
+  outline: none;
+}
+
+.pricing-button:hover {
+  outline: none;
+  background-color: #6d4cb3;
+}
+
+.feature-list {
+  margin-top: 2rem;
+  list-style: none;
+  padding: 0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+}
+
+.feature-check {
+  color: #7c53b3;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+}
+
+.user-menu {
+  position: absolute;
+  right: 2rem;
+  top: 5rem;
+  background-color: white;
+  border-radius: 1rem;
+  padding: 0.75rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  width: 16rem;
+  z-index: 1000;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 0.875rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: #1a1a1a;
+  transition: background-color 0.2s ease;
+  font-weight: 500;
+}
+
+.menu-item:hover {
+  background-color: #f5f5f5;
+}
+
+.menu-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.75rem;
+  color: #7c53b3;
+}
+
+.logout-button {
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  color: #dc2626;
+  font-weight: 500;
+}
+
+.logout-button:hover {
+  background-color: #fee2e2;
+}
+
+.logout-icon {
+  color: #dc2626;
+}

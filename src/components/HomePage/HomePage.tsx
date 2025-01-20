@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import './HomePage.css';
-import NetworkIcon from '../UserProfilePage/Icon';
-import { SearchIcon, UserProfileIcon } from './HomePageIcons';
-import SearchBar from './SearchBar';
-
+import FinovaIcon from '../UserProfilePage/Icon';
+import UserProfileIcon from './HomePageIcons';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Diamond, LineChart, LogOut, UserCircle } from 'lucide-react';
 
 interface HomePageProps {
   onLogOut: () => void;
@@ -33,43 +33,51 @@ const HomePage: React.FC<HomePageProps> = ({ onLogOut }) => {
 
   return (
     <div className="home-container">
-      {/* Navigation */}
       <nav className="nav-container">
         <div className="nav-buttons">
-          <NetworkIcon className="welcome-network-icon" />
-          <SearchBar />
+          <FinovaIcon className="Finova-icon" />
         </div>
-        <button 
-          className="nav-button"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          <UserProfileIcon />
-        </button>
+        <div className="nav-right">
+          <button 
+            className="nav-button"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <UserProfileIcon className="user-profile-icon" />
+          </button>
+        </div>
       </nav>
 
-      {/* Logo Section */}
-      <div className="logo-container">
-        <img 
-          src="src/assets/logo.jpg" 
-          alt="Finova AI Logo"
-        />
+      <div className="hero-section">
+        <div className="hero-content">
+          <img 
+            src="src/assets/logo.jpg" 
+            alt="Finova AI Logo"
+            className="hero-logo"
+          />
+          <h1 className="hero-title">Choose Your Plan</h1>
+          <p className="hero-subtitle">Get started with the perfect plan for your needs</p>
+        </div>
       </div>
 
-      {/* Pricing Cards */}
       <div className="pricing-container">
         {plans.map((plan) => (
-          <div key={plan.type} className="pricing-card">
-            <h2 className="pricing-title">{plan.type}</h2>
-            <div className="pricing-price">
-              <span className="price-amount">${plan.price}</span>
-              <span className="price-period">/month</span>
+          <div 
+            key={plan.type} 
+            className={`pricing-card ${plan.type.toLowerCase()}-card`}
+          >
+            <div className="card-header">
+              <h2 className="pricing-title">{plan.type}</h2>
+              <div className="pricing-price">
+                <span className="price-amount">${plan.price}</span>
+                <span className="price-period">/month</span>
+              </div>
             </div>
             <button
               className={`pricing-button ${
                 plan.type === 'Pro' ? 'pro' : 'free'
               }`}
             >
-              {plan.type === 'Free' ? 'Your current plan' : 'Get Pro'}
+              {plan.type === 'Free' ? 'Current Plan' : 'Upgrade to Pro'}
             </button>
             <ul className="feature-list">
               {plan.features.map((feature, index) => (
@@ -83,26 +91,37 @@ const HomePage: React.FC<HomePageProps> = ({ onLogOut }) => {
         ))}
       </div>
 
-      {/* User Menu */}
-      {isMenuOpen && (
-        <div className="user-menu">
-          <a href="#" className="menu-item">
-            👤 My info
-          </a>
-          <a href="#" className="menu-item">
-            📊 Investment journal
-          </a>
-          <a href="#" className="menu-item">
-            💎 Upgrade plan
-          </a>
-          <button 
-            onClick={onLogOut}
-            className="menu-item"
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div 
+            className="user-menu"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
           >
-            🚪 Log out
-          </button>
-        </div>
-      )}
+            <a href="#" className="menu-item">
+              <UserCircle className="menu-icon" />
+              My Profile
+            </a>
+            <a href="#" className="menu-item">
+              <LineChart className="menu-icon" />
+              Investment Journal
+            </a>
+            <a href="#" className="menu-item">
+              <Diamond className="menu-icon" />
+              Upgrade Plan
+            </a>
+            <button 
+              onClick={onLogOut}
+              className="menu-item logout-button"
+            >
+              <LogOut className="menu-icon logout-icon" />
+              Log out
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
