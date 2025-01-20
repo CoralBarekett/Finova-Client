@@ -1,0 +1,179 @@
+/* Main layout */
+.home-container {
+    min-height: 100vh;
+    background-color: #faf9f7;
+  }
+
+  .welcome-network-icon {
+    width: 64px;  /* Match height of avatar */
+    height: 64px;
+    flex-shrink: 0;
+  }
+  
+  /* Network Icon Styles */
+  .network-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  
+  
+  /* Navigation styles */
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-button {
+    padding: 0.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+  
+  /* Logo styles */
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  .logo-container img {
+    height: 10.5rem;
+    object-fit: contain;
+  }
+  
+  /* Pricing section */
+  .pricing-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .pricing-card {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 18rem;
+  }
+  
+  .pricing-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .pricing-price {
+    margin-bottom: 1rem;
+  }
+  
+  .price-amount {
+    font-size: 2.25rem;
+    font-weight: bold;
+  }
+  
+  .price-period {
+    color: #666;
+  }
+  
+  .pricing-button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .pricing-button.pro {
+    background-color: #4834b8;
+    color: white;
+  }
+  
+  .pricing-button.free {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .feature-list {
+    margin-top: 1rem;
+  }
+  
+  .feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .feature-check {
+    color: #4834b8;
+    margin-right: 0.5rem;
+  }
+  
+  /* User menu */
+  .user-menu {
+    position: absolute;
+    right: 2rem;
+    top: 4rem;
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 14rem;
+  }
+  
+  .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .menu-item:hover {
+    background-color: #f7f7f7;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .pricing-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .pricing-card {
+      width: 100%;
+      max-width: 24rem;
+    }
+  }
+
+  /* Icon styles */
+.icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+  }
+  
+  .menu-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
+  
+  .check-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
+  }

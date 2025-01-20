@@ -4,6 +4,7 @@ import LandingPage from './components/LandingPage/LandingPage'
 import LoginPage from './components/LoginPage/LoginPage'
 import SignUpPage from './components/SignUpPage/SignUpPage'
 import UserProfilePage from './components/UserProfilePage/UserProfilePage'
+import HomePage from './components/HomePage/HomePage'
 
 function App() {
   const AppRoutes = () => {
@@ -29,6 +30,10 @@ function App() {
             onSwitchToSignup={() => navigate('/signup')}
           />
         } />
+        <Route path="/home" element=
+          {<HomePage 
+              onLogOut={() => navigate('/home')} />} 
+          />
         <Route path="/user-profile" element={<UserProfilePage accountType={'free'} />} />
       </Routes>
     );
