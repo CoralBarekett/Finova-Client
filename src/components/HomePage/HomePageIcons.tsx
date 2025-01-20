@@ -1,14 +1,23 @@
 import React from 'react';
-import { Search, User } from 'lucide-react';
+import { User } from 'lucide-react';
 
-export const SearchIcon = () => (
-  <div className="p-2">
-    <Search className="w-6 h-6" />
-  </div>
-);
+interface UserIconProps {
+  size?: number;
+  className?: string;
+}
 
-export const UserProfileIcon = () => (
-  <div className="p-2">
-    <User className="w-6 h-6" />
-  </div>
-);
+const UserIcon: React.FC<UserIconProps> = ({ 
+  size = 24, 
+  className = "" 
+}) => {
+  return (
+    <div className={`rounded-full bg-gray-200 p-2 inline-flex items-center justify-center ${className}`}>
+      <User 
+        size={size} 
+        className="text-gray-600"
+      />
+    </div>
+  );
+};
+
+export default UserIcon;

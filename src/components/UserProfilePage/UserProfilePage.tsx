@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUp, ArrowDown } from 'lucide-react';
-import NetworkIcon from './Icon';
+import FinovaIcon from './Icon';
 import './UserProfilePage.css';
 
 // Custom hook for typing animation
@@ -115,7 +115,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ username = 'User' }) => {
         <div className="profile-container">
             {/* Welcome Section */}
             <div className="welcome-section">
-                <NetworkIcon className="welcome-network-icon" />
+                <FinovaIcon className="welcome-Finova-icon" />
                     <div className="welcome-text">
                         <h1 className="typing-text">
                             {displayedText}
